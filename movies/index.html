@@ -6,14 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <style>
-    .waterfall img {
+    img {
       position: absolute;
-      width: 100px;
-	  margin: 2px;
-      transition: all .4s;
+      width: 120px;
+	  margin: 1px;
     }
     input{
-        outline-style: none ;
+        outline-style: none;
         border: 1px solid #ccc; 
         border-radius: 2px;
         padding: 10px 10px;
@@ -27,7 +26,7 @@
 <body>
   <center><input></input></center>
 
-  <div class="waterfall">
+  <div class="waterfall" style="margin:0 auto;">
 	<img src="https://p1.meituan.net/moviemachine/fdd380fb2f7f0f1742f9f7c8ae7c5fec7189073.jpg" alt="100*100">
 	<img src="https://p0.meituan.net/movie/dc2fed6001e809e4553f90cc6fad9a59245170.jpg" alt="100*70">
 	<img src="https://p0.meituan.net/movie/3ad18f011110130e927d50046fde86f71038961.jpg" alt="100*150">
@@ -38,30 +37,6 @@
 	<img src="http://via.placeholder.com/100x210" alt="100*210">
 	<img src="http://via.placeholder.com/100x230" alt="100*230">
 	<img src="http://via.placeholder.com/100x100" alt="100*100">
-	<img src="http://via.placeholder.com/100x70" alt="100*70">
-	<img src="http://via.placeholder.com/100x150" alt="100*150">
-	<img src="http://via.placeholder.com/100x250" alt="100*250">
-	<img src="http://via.placeholder.com/100x80" alt="100*80">
-	<img src="http://via.placeholder.com/100x90" alt="100*90">
-	<img src="http://via.placeholder.com/100x120" alt="100*120">
-	<img src="http://via.placeholder.com/100x210" alt="100*210">
-	<img src="http://via.placeholder.com/100x250" alt="100*250">
-	<img src="http://via.placeholder.com/100x80" alt="100*80">
-	<img src="http://via.placeholder.com/100x80" alt="100*80">
-	<img src="http://via.placeholder.com/100x90" alt="100*90">
-	<img src="http://via.placeholder.com/100x120" alt="100*120">
-	<img src="http://via.placeholder.com/100x210" alt="100*210">
-	<img src="http://via.placeholder.com/100x100" alt="100*100">
-	<img src="http://via.placeholder.com/100x70" alt="100*70">
-	<img src="http://via.placeholder.com/100x250" alt="100*250">
-	<img src="http://via.placeholder.com/100x210" alt="100*210">
-	<img src="http://via.placeholder.com/100x250" alt="100*250">
-	<img src="http://via.placeholder.com/100x210" alt="100*210">
-	<img src="http://via.placeholder.com/100x230" alt="100*230">
-	<img src="http://via.placeholder.com/100x100" alt="100*100">
-	<img src="http://via.placeholder.com/100x70" alt="100*70">
-	<img src="http://via.placeholder.com/100x150" alt="100*150">
-	<img src="http://via.placeholder.com/100x150" alt="100*150">
 	<img src="http://via.placeholder.com/100x230" alt="100*230">
 	<img src="http://via.placeholder.com/100x70" alt="100*70">
 	<img src="http://via.placeholder.com/100x150" alt="100*150">
@@ -82,40 +57,10 @@
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
 <script>
 
-  var colCount   //定义列数
-  var colHeightArry= []   //定义列高度数组
-  var imgWidth = $('.waterfall img').outerWidth(true)   //单张图片的宽度
-
-  colCount = parseInt($('.waterfall').width()/imgWidth)   //计算出列数
-  for(var i = 0 ; i < colCount; i ++){
-    colHeightArry[i] = 0
-  }
-  //[0,0,0]
-
-  $('.waterfall img').on('load',function(){
-  
-    var minValue = colHeightArry[0]  //定义最小的高度
-    var minIndex = 0  //定义最小高度的下标
-    for(var i = 0 ; i < colCount; i ++){
-      if(colHeightArry[i] < minValue){   //如果最小高度组数中的值小于最小值
-        minValue = colHeightArry[i]   //那么认为最小高度数组中的值是真正的最小值
-        minIndex = i  //最小下标为当前下标
-      }
-    }
-
-    $(this).css({
-      left: minIndex * imgWidth,
-      top: minValue
-    })
-    colHeightArry[minIndex] += $(this).outerHeight(true)
-  })
-
-
   //当窗口大小重置之后，重新执行
   $(window).on('resize',function(){
     reset()
   })
-
 
   //当窗口加载完毕，执行瀑布流
   $(window).on('load',function(){
@@ -124,12 +69,15 @@
 
   //定义reset函数
   function reset(){
-	var colHeightArry= []
-    colCount = parseInt($('.waterfall').width()/imgWidth)
-    for(var i = 0 ; i < colCount; i ++){
-      colHeightArry[i] = 0
-    }
-    $('.waterfall img').each(function(){
+  var colCount   //定义列数
+  var colHeightArry= []   //定义列高度数组
+  var imgWidth = $('img').outerWidth(true)   //单张图片的宽度
+
+  colCount = parseInt($('.waterfall').width()/imgWidth)   //计算出列数
+  for(var i = 0 ; i < colCount; i ++){
+    colHeightArry[i] = 50
+  }
+    $('img').each(function(){
       var minValue = colHeightArry[0]
       var minIndex = 0
       for(var i = 0 ; i < colCount; i ++){
