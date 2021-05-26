@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -13,55 +12,19 @@
     }
     input{
         outline-style: none;
-        border: 1px solid #ccc; 
+        border: 1px solid #ccc;
         border-radius: 2px;
         padding: 10px 10px;
         width: 80%;
         box-sizing: border-box;
     }
-
   </style>
-  <title>瀑布流</title>
-</head>
-<body>
-  <center><input></input></center>
-
-  <div class="waterfall" style="margin:0 auto;">
-	<img src="https://p1.meituan.net/moviemachine/fdd380fb2f7f0f1742f9f7c8ae7c5fec7189073.jpg" alt="100*100">
-	<img src="https://p0.meituan.net/movie/dc2fed6001e809e4553f90cc6fad9a59245170.jpg" alt="100*70">
-	<img src="https://p0.meituan.net/movie/3ad18f011110130e927d50046fde86f71038961.jpg" alt="100*150">
-	<img src="https://p1.meituan.net/movie/063be170e3b06db0b05d3bb338be1140855828.jpg" alt="100*250">
-	<img src="http://via.placeholder.com/100x80" alt="100*80">
-	<img src="http://via.placeholder.com/100x90" alt="100*90">
-	<img src="http://via.placeholder.com/100x120" alt="100*120">
-	<img src="http://via.placeholder.com/100x210" alt="100*210">
-	<img src="http://via.placeholder.com/100x230" alt="100*230">
-	<img src="http://via.placeholder.com/100x100" alt="100*100">
-	<img src="http://via.placeholder.com/100x230" alt="100*230">
-	<img src="http://via.placeholder.com/100x70" alt="100*70">
-	<img src="http://via.placeholder.com/100x150" alt="100*150">
-	<img src="http://via.placeholder.com/100x250" alt="100*250">
-	<img src="http://via.placeholder.com/100x80" alt="100*80">
-	<img src="http://via.placeholder.com/100x90" alt="100*90">
-	<img src="http://via.placeholder.com/100x120" alt="100*120">
-	<img src="http://via.placeholder.com/100x210" alt="100*210">
-	<img src="http://via.placeholder.com/100x250" alt="100*250">
-	<img src="http://via.placeholder.com/100x80" alt="100*80">
-	<img src="http://via.placeholder.com/100x80" alt="100*80">
-	<img src="http://via.placeholder.com/100x90" alt="100*90">
-	<img src="http://via.placeholder.com/100x120" alt="100*120">
-	<img src="http://via.placeholder.com/100x210" alt="100*210">
-  </div>
-</body>
-</html>
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
 <script>
-
   //当窗口大小重置之后，重新执行
   $(window).on('resize',function(){
     reset()
   })
-
   //当窗口加载完毕，执行瀑布流
   $(window).on('load',function(){
     reset()
@@ -69,14 +32,14 @@
 
   //定义reset函数
   function reset(){
-  var colCount   //定义列数
-  var colHeightArry= []   //定义列高度数组
-  var imgWidth = $('img').outerWidth(true)   //单张图片的宽度
+      var colCount   //定义列数
+      var colHeightArry= []   //定义列高度数组
+      var imgWidth = $('img').outerWidth(true)   //单张图片的宽度
 
-  colCount = parseInt($('.waterfall').width()/imgWidth)   //计算出列数
-  for(var i = 0 ; i < colCount; i ++){
-    colHeightArry[i] = 50
-  }
+      colCount = parseInt($('.waterfall').width()/imgWidth)   //计算出列数
+      for(var i = 0 ; i < colCount; i ++){
+        colHeightArry[i] = 50
+      }
     $('img').each(function(){
       var minValue = colHeightArry[0]
       var minIndex = 0
@@ -94,6 +57,37 @@
       colHeightArry[minIndex] += $(this).outerHeight(true)
     })
   }
-
-
 </script>
+  <title>电影收藏</title>
+</head>
+<body>
+  <center><input></input></center>
+  
+  <div class="waterfall">
+	<img src="https://p1.meituan.net/moviemachine/fdd380fb2f7f0f1742f9f7c8ae7c5fec7189073.jpg">
+	<img src="https://p0.meituan.net/movie/dc2fed6001e809e4553f90cc6fad9a59245170.jpg">
+	<img src="https://p0.meituan.net/movie/3ad18f011110130e927d50046fde86f71038961.jpg">
+	<img src="https://p1.meituan.net/movie/063be170e3b06db0b05d3bb338be1140855828.jpg">
+	<img src="http://via.placeholder.com/100x80">
+	<img src="http://via.placeholder.com/100x90">
+	<img src="http://via.placeholder.com/100x120">
+	<img src="http://via.placeholder.com/100x210">
+	<img src="http://via.placeholder.com/100x230">
+	<img src="http://via.placeholder.com/100x100">
+	<img src="http://via.placeholder.com/100x230">
+	<img src="http://via.placeholder.com/100x70">
+	<img src="http://via.placeholder.com/100x150">
+	<img src="http://via.placeholder.com/100x250">
+	<img src="http://via.placeholder.com/100x80">
+	<img src="http://via.placeholder.com/100x90">
+	<img src="http://via.placeholder.com/100x120">
+	<img src="http://via.placeholder.com/100x210">
+	<img src="http://via.placeholder.com/100x250">
+	<img src="http://via.placeholder.com/100x80">
+	<img src="http://via.placeholder.com/100x80">
+	<img src="http://via.placeholder.com/100x90">
+	<img src="http://via.placeholder.com/100x120">
+	<img src="http://via.placeholder.com/100x210">
+  </div>
+</body>
+</html>
