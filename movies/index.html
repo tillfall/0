@@ -1,107 +1,116 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <style>
-    img {
-      position: absolute;
-      width: 110px;
-	  margin: 1px;
-    }
-    input{
-        outline-style: none;
-        border: 1px solid #ccc;
-        border-radius: 2px;
-        padding: 10px 10px;
-        width: 80%;
-        box-sizing: border-box;
-    }
-  </style>
-<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
-<script>
-  //当窗口大小重置之后，重新执行
-  $(window).on('resize',function(){
-    reset()
-  })
-  //当窗口加载完毕，执行瀑布流
-  $(window).on('load',function(){
-    reset()
-  })
-  
-  function onfilter(x)
-    {
-    var y=document.getElementById(x).value
-    console.log(y)
-    }
-
-  //定义reset函数
-  function reset(){
-      var colCount   //定义列数
-      var colHeightArry= []   //定义列高度数组
-      var imgWidth = $('img').outerWidth(true)   //单张图片的宽度
-
-      colCount = parseInt($('.waterfall').width()/imgWidth)   //计算出列数
-      for(var i = 0 ; i < colCount; i ++){
-        colHeightArry[i] = 50
-      }
-      
-    $('img').each(function(){
-    if ($(this).attr('tag') && $(this).attr('tag').includes('d')){
-      var minValue = colHeightArry[0]
-      var minIndex = 0
-      for(var i = 0 ; i < colCount; i ++){
-        if(colHeightArry[i] < minValue){
-          minValue = colHeightArry[i]
-          minIndex = i
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        img {
+            position: absolute;
+            width: 100px;
+            margin: 1px;
         }
-      }
+        input {
+            outline-style: none;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            padding: 10px 10px;
+            width: 80%;
+            box-sizing: border-box;
+        }
+    </style>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+    <script>
+        //当窗口大小重置之后，重新执行
+        $(window).on('resize',function(){
+            reset("")
+        })
+        //当窗口加载完毕，执行瀑布流
+        $(window).on('load',function(){
+            reset("")
+        })
+      
+        function onfilter()
+        {
+            var filterStr=document.getElementById("filterInput").value
+            reset(filterStr)
+        }
 
-      $(this).css({
-        left: minIndex * imgWidth,
-        top: minValue
-      })
-      colHeightArry[minIndex] += $(this).outerHeight(true)}
-      else {
-        $(this).css({
-        opacity: 0
-      })
-      }
-    })
-  }
-</script>
-  <title>电影收藏</title>
+        function reset(filterStr){
+            var imgWidth = $('img').outerWidth(true)   //单张图片的宽度
+            var divWidth = $('div').width() //页宽
+            var colCount = parseInt(divWidth/imgWidth)   //计算出列数
+            var leftMargin = parseInt((divWidth - imgWidth * colCount - colCount)/2)  // 左边距，保持居中
+            var topMargin = 50  //预留过滤条件输入框高度
+            var colHeightArry= []   //定义列高度数组
+            for(var i = 0 ; i < colCount; i ++){
+                colHeightArry[i] = topMargin
+            }
+            var showCount = 0   //显示的项目数
+            var filterTagSet = new Set(filterStr.toLowerCase().replace('，',',').split(','))
+            filterTagSet.delete("") //过滤条件转成无空不重复的集合
+
+            $('img').each(function(){
+                var showThis = true //没有过滤条件，则显示所有项
+                if (0 != filterTagSet.size) {
+                    var imgTagStr = $(this).attr('tag') //
+                    if (imgTagStr) {
+                        // var imgTagSet = new Set(imgTagStr.split(','))
+                        for (tag of filterTagSet) {
+                            // if (!imgTagSet.has(tag)) {
+                            if (!imgTagStr.includes(tag)) { // 支持过滤条件未输入完整时的部分匹配
+                                showThis = false   //只要有一个过滤的标签不属于项目标签，则不显示
+                            }
+                        }
+                    }
+                    else {
+                        showThis = false // 项目无标签
+                    }
+                }
+                
+                if (showThis){
+                    var minValue = colHeightArry[0]
+                    var minIndex = 0
+                    for(var i = 0 ; i < colCount; i ++){
+                        if(colHeightArry[i] < minValue){
+                            minValue = colHeightArry[i]
+                            minIndex = i
+                        }
+                    }
+
+                    $(this).css({
+                        left: minIndex * imgWidth + leftMargin,
+                        top: minValue,
+                        opacity: 1
+                    })
+                    colHeightArry[minIndex] += $(this).outerHeight(true)
+                    
+                    showCount += 1
+                }
+                else {
+                    $(this).css({
+                        left: -1000,
+                        top: -1000,
+                        opacity: 0  // 隐藏未包含标签项
+                    })
+                }
+            })
+            
+            document.getElementById("count").innerHTML = showCount
+        }
+    </script>
+    <title>电影收藏</title>
 </head>
+
 <body>
-  <center><input id="filterstr" oninput="onfilter(this.id)"></input></center>
+    <center><input id="filterInput" oninput="onfilter()" placeholder="片名, 中/日/欧美, 刘德华/宫崎骏, 动画/记录/剧集/演唱会/运动/灾难/科幻, 推荐/zok/ztodo"></input>&nbsp;<span id="count"></span></center>
   
-  <div class="waterfall">
-	<a href="https://maoyan.com/films/343034">
-        <img src="https://p1.meituan.net/moviemachine/fdd380fb2f7f0f1742f9f7c8ae7c5fec7189073.jpg" tag="a,b,d"></a>
-	<a href="https://maoyan.com/films/1298367">
-        <img src="https://p0.meituan.net/movie/dc2fed6001e809e4553f90cc6fad9a59245170.jpg" tag="d,e,f"></a>
-        
-	<img src="http://via.placeholder.com/100x80" tag="d,e,f">
-	<img src="http://via.placeholder.com/100x90" tag="e">
-	<img src="http://via.placeholder.com/100x120">
-	<img src="http://via.placeholder.com/100x210">
-	<img src="http://via.placeholder.com/100x230">
-	<img src="http://via.placeholder.com/100x100" tag="d,e,f">
-	<img src="http://via.placeholder.com/100x230">
-	<img src="http://via.placeholder.com/100x70">
-	<img src="http://via.placeholder.com/100x150" tag="d,e,f">
-	<img src="http://via.placeholder.com/100x250">
-	<img src="http://via.placeholder.com/100x80">
-	<img src="http://via.placeholder.com/100x90">
-	<img src="http://via.placeholder.com/100x120">
-	<img src="http://via.placeholder.com/100x210">
-	<img src="http://via.placeholder.com/100x250">
-	<img src="http://via.placeholder.com/100x80">
-	<img src="http://via.placeholder.com/100x80">
-	<img src="http://via.placeholder.com/100x90">
-	<img src="http://via.placeholder.com/100x120">
-	<img src="http://via.placeholder.com/100x210">
-  </div>
+    <div id="waterfall">
+<a href="https://maoyan.com/films/1212"><img src="https://p0.meituan.net/movie/30b20139e68c46d02e0893277d633b701292458.jpg" tag="qyqx,动画,dh,日,r,宫崎骏,gqj,推荐,tj,zok"></a>
+<a href="https://maoyan.com/films/1375"><img src="https://p0.meituan.net/movie/8609f509a07d64da4c8bdc58db7a440a369264.jpg" tag="hz,,中,z,张艺谋,zym,巩俐,gl,葛优,gy,推荐,tj"></a>
+<a href="https://maoyan.com/films/1252622"><img src="https://p1.meituan.net/movie/3d24b8f90476f1e732afdd46ff7a6ceb245138.jpg" tag="asj,动画,dh,,,推荐,tj"></a>
+<a href="https://maoyan.com/films/409882"><img src="https://p1.meituan.net/movie/6168f82627a17984c0cd8fcc07cd8606213329.jpg" tag="24xs,剧集,jj,,,推荐,tj"></a>
+<a href="https://maoyan.com/films/410459"><img src="https://p0.meituan.net/movie/54479fd3d1225613fa7f7d478323a08e271076.jpg" tag="dgjq,记录,jl,中,z,,"></a>
+    </div>
 </body>
 </html>
