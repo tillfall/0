@@ -23,25 +23,24 @@
     <script>
         //当窗口大小重置之后，重新执行
         $(window).on('resize',function(){
-            reset("")
+            reset()
         })
         //当窗口加载完毕，执行瀑布流
         $(window).on('load',function(){
-            reset("")
-        })
-      
+            reset()
+        })      
         function onfilter()
         {
-            var filterStr=document.getElementById("filterInput").value
-            reset(filterStr)
+            reset()
         }
 
-        function reset(filterStr){
+        function reset(){
+            var filterStr=document.getElementById("filterInput").value
             var imgWidth = $('img').outerWidth(true)   //单张图片的宽度
             var divWidth = $('div').width() //页宽
             var colCount = parseInt(divWidth/imgWidth)   //计算出列数
             var leftMargin = parseInt((divWidth - imgWidth * colCount - colCount)/2)  // 左边距，保持居中
-            var topMargin = 50  //预留过滤条件输入框高度
+            var topMargin = 60  //预留过滤条件输入框高度
             var colHeightArry= []   //定义列高度数组
             for(var i = 0 ; i < colCount; i ++){
                 colHeightArry[i] = topMargin
