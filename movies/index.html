@@ -58,8 +58,9 @@
 
             $('img').each(function(){
                 var showThis = true //没有过滤条件，则显示所有项
-                if (0 != filterTagSet.size) {
-                    var imgTagStr = $(this).attr('tag') //
+                var imgTagStr = $(this).attr('tag')
+                
+                if (0 != filterTagSet.size) {                    
                     if (imgTagStr) {
                         // var imgTagSet = new Set(imgTagStr.split(','))
                         for (tag of filterTagSet) {
@@ -67,7 +68,7 @@
                             if (!imgTagStr.includes(tag)) { // 支持过滤条件未输入完整时的部分匹配
                                 showThis = false   //只要有一个过滤的标签不属于项目标签，则不显示
                             }
-                        }
+                        }                        
                     }
                     else {
                         showThis = false // 项目无标签
@@ -76,6 +77,10 @@
                 
                 var tipId = $(this).attr("src")
                 var tipBtn = document.getElementById(tipId)
+                
+                if (imgTagStr && imgTagStr.includes("new")) {
+                    tipBtn.style.background = "orange"
+                }
 
                 if (showThis){
                     var minValue = colHeightArry[0]
@@ -98,7 +103,7 @@
                     
                     tipBtn.style.left = minIndex * imgWidth + leftMargin + 65 + "px"
                     tipBtn.style.top = minValue + 5 + "px"
-                    tipBtn.style.opacity = 1
+                    tipBtn.style.opacity = 1                    
                 }
                 else {
                     $(this).css({
@@ -125,12 +130,12 @@
   
     <div id="waterfall">
     
-<a href="https://maoyan.com/films/1212"><img src="https://z3.ax1x.com/2021/05/31/2Zrr7V.jpg" tag="千与千寻,qyqx,动画,dh,日,r,宫崎骏,gqj,推荐,tj,zok,2001"></a><span class="tip" id="https://z3.ax1x.com/2021/05/31/2Zrr7V.jpg" onclick="alert('千与千寻,qyqx,动画,dh,日,r,宫崎骏,gqj,推荐,tj,zok,2001')">&nbsp;</span>
+<a href="https://maoyan.com/films/1212"><img src="https://z3.ax1x.com/2021/05/31/2Zrr7V.jpg" tag="千与千寻,qyqx,动画,dh,日,r,宫崎骏,gqj,推荐,tj,zok,2001,new"></a><span class="tip" id="https://z3.ax1x.com/2021/05/31/2Zrr7V.jpg" onclick="alert('千与千寻,qyqx,动画,dh,日,r,宫崎骏,gqj,推荐,tj,zok,2001')">&nbsp;</span>
 <a href="https://maoyan.com/films/1252622"><img src="https://z3.ax1x.com/2021/05/31/2ZrfXR.jpg" tag="爱死机S1,asj,动画,dh,,,推荐,tj,2019"></a><span class="tip" id="https://z3.ax1x.com/2021/05/31/2ZrfXR.jpg" onclick="alert('爱死机S1,asj,动画,dh,,,推荐,tj,2019')">&nbsp;</span>
 <a href="https://maoyan.com/films/409882"><img src="https://z3.ax1x.com/2021/05/31/2Zr4n1.jpg" tag="24小时,24xs,剧集,jj,,,推荐,tj,2016"></a><span class="tip" id="https://z3.ax1x.com/2021/05/31/2Zr4n1.jpg" onclick="alert('24小时,24xs,剧集,jj,,,推荐,tj,2016')">&nbsp;</span>
 <a href="https://maoyan.com/films/410459"><img src="https://z3.ax1x.com/2021/05/31/2ZrR1J.jpg" tag="大国崛起,dgjq,记录,jl,中,z,,,2006"></a><span class="tip" id="https://z3.ax1x.com/2021/05/31/2ZrR1J.jpg" onclick="alert('大国崛起,dgjq,记录,jl,中,z,,,2006')">&nbsp;</span>
 <a href="https://maoyan.com/films/1375"><img src="https://z3.ax1x.com/2021/05/31/2Zr2p4.jpg" tag="活着,hz,,中,z,张艺谋,zym,巩俐,gl,葛优,gy,推荐,tj,ztj2,1994"></a><span class="tip" id="https://z3.ax1x.com/2021/05/31/2Zr2p4.jpg" onclick="alert('活着,hz,,中,z,张艺谋,zym,巩俐,gl,葛优,gy,推荐,tj,ztj2,1994')">&nbsp;</span>
-<a href="https://maoyan.com/films/771"><img src="https://z3.ax1x.com/2021/05/31/2ZrchF.jpg" tag="2012,2012,灾难,zn,,,zok,2009"></a><span class="tip" id="https://z3.ax1x.com/2021/05/31/2ZrchF.jpg" onclick="alert('2012,2012,灾难,zn,,,zok,2009')">&nbsp;</span>
+<a href="https://maoyan.com/films/771"><img src="https://z3.ax1x.com/2021/05/31/2ZrchF.jpg" tag="2012,2012,灾难,zn,,,zok,2009,new"></a><span class="tip" id="https://z3.ax1x.com/2021/05/31/2ZrchF.jpg" onclick="alert('2012,2012,灾难,zn,,,zok,2009')">&nbsp;</span>
 <a href="https://maoyan.com/films/78929"><img src="https://z3.ax1x.com/2021/05/31/2ZrykT.jpg" tag="白日梦想家,brmxj,,,,推荐,tj,ztj1,2013"></a><span class="tip" id="https://z3.ax1x.com/2021/05/31/2ZrykT.jpg" onclick="alert('白日梦想家,brmxj,,,,推荐,tj,ztj1,2013')">&nbsp;</span>
 <a href="https://maoyan.com/films/20652"><img src="https://z3.ax1x.com/2021/05/31/2Zr6tU.jpg" tag="变形金刚1234,bxjg,科幻,kh,动作,dz,,marvel,ztj1,2007"></a><span class="tip" id="https://z3.ax1x.com/2021/05/31/2Zr6tU.jpg" onclick="alert('变形金刚1234,bxjg,科幻,kh,动作,dz,,marvel,ztj1,2007')">&nbsp;</span>
 <a href="https://maoyan.com/films/1304"><img src="https://z3.ax1x.com/2021/05/29/2EekS1.jpg" tag="楚门的世界,cmdsj,,,金凯利,jkl,推荐,tj,ztj1,1998"></a><span class="tip" id="https://z3.ax1x.com/2021/05/29/2EekS1.jpg" onclick="alert('楚门的世界,cmdsj,,,金凯利,jkl,推荐,tj,ztj1,1998')">&nbsp;</span>
