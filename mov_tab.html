@@ -9,36 +9,108 @@ $(document).ready(function() {
 } );
 	</script>
     <style>
-        .name_cell{white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
+        td{white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
         .center_cell{text-align: center}
     </style>
 </head>
 
 <table id="mytable" class="display" style="width:95%; table-layout:fixed">
   <thead>
-    <tr style="text-align: right;">
-      <th class="center_cell" width="150">name</th>
+    <tr>
       <th class="center_cell" width="30">PY</th>
+      <th class="center_cell" width="250">name</th>
       <th class="center_cell" width="40">Disk</th>
       <th class="center_cell" width="40">Dir</th>
       <th class="center_cell">TAG</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td class="name_cell">云的彼端.约定的地方</td><td class="center_cell">YD</td><td class="center_cell">NAS</td><td class="center_cell">电影0</td><td>3</td></tr>
-    <tr><td class="name_cell">了不起的狐狸爸爸</td><td class="center_cell">T动画</td><td class="center_cell">1</td><td class="center_cell">2</td><td>3</td></tr>
-    <tr><td class="name_cell">玛丽和马克思</td><td>T动画</td><td>1</td><td>2</td><td>3</td></tr>
-    <tr><td class="name_cell">千年女优</td><td>T动画</td><td>1</td><td>2</td><td>3</td></tr>
-    <tr><td class="name_cell">言叶之庭</td><td>T动画</td><td>1</td><td>2</td><td>3</td></tr>
-    <tr><td class="name_cell">萤火之森</td><td>T动画</td><td>1</td><td>2</td><td>3</td></tr>
-    <tr><td class="name_cell">疯狂约会美丽都</td><td>T动画</td><td>1</td><td>2</td><td>3</td></tr>
-    <tr><td class="name_cell">生命之书</td><td>T动画</td><td>1</td><td>2</td><td>3</td></tr>
-    <tr><td class="name_cell">亚瑟和他的迷你王国</td><td>T动画</td><td>1</td><td>2</td><td>3</td></tr>
-    <tr><td class="name_cell">公主与青蛙</td><td>T动画</td><td>1</td><td>2</td><td>3</td></tr>
-    <tr><td class="name_cell">埃及王子</td><td>T动画</td><td>1</td><td>2</td><td>3</td></tr>
-    <tr><td class="name_cell">工作细胞</td><td>T动画</td><td>1</td><td>2</td><td>3</td></tr>
-    <tr><td class="name_cell">无敌破坏王</td><td>T动画,todo</td><td>1</td><td>2</td><td>3</td></tr>
-  </tbody>
+<tr><td class="center_cell">ZG</td><td>中国机长.mp4</td><td class="center_cell">BDY</td><td class="center_cell">电影</td><td>γ</td></tr>
+<tr><td class="center_cell">BW</td><td>剧-不完美的她</td><td class="center_cell">BDY</td><td class="center_cell">剧集</td><td>γ</td></tr>
+<tr><td class="center_cell">LJ</td><td>剧-亮剑</td><td class="center_cell">BDY</td><td class="center_cell">剧集</td><td>γ</td></tr>
+<tr><td class="center_cell">RY</td><td>剧-仁医【日】</td><td class="center_cell">BDY</td><td class="center_cell">剧集</td><td>γ</td></tr>
+<tr><td class="center_cell">SB</td><td>剧-士兵突击</td><td class="center_cell">BDY</td><td class="center_cell">剧集</td><td>γ</td></tr>
+<tr><td class="center_cell">TQ</td><td>剧-天桥上的魔术师</td><td class="center_cell">BDY</td><td class="center_cell">剧集</td><td>γ</td></tr>
+<tr><td class="center_cell">NW</td><td>剧-女王的棋局</td><td class="center_cell">BDY</td><td class="center_cell">剧集</td><td>γ</td></tr>
+<tr><td class="center_cell">WM</td><td>剧-我们与恶的距离</td><td class="center_cell">BDY</td><td class="center_cell">剧集</td><td>γ</td></tr>
+<tr><td class="center_cell">SH</td><td>剧-扫黑fengbao</td><td class="center_cell">BDY</td><td class="center_cell">剧集</td><td>γ</td></tr>
+<tr><td class="center_cell">FC</td><td>剧-繁城之下</td><td class="center_cell">BDY</td><td class="center_cell">剧集</td><td>γ</td></tr>
+<tr><td class="center_cell">ZP</td><td>剧-纸牌屋</td><td class="center_cell">BDY</td><td class="center_cell">剧集</td><td>γ</td></tr>
+<tr><td class="center_cell">JX</td><td>剧-觉醒年代</td><td class="center_cell">BDY</td><td class="center_cell">剧集</td><td>γ</td></tr>
+<tr><td class="center_cell">CA</td><td>剧-长安十二时辰</td><td class="center_cell">BDY</td><td class="center_cell">剧集</td><td>γ</td></tr>
+<tr><td class="center_cell">YM</td><td>剧-隐秘的角落</td><td class="center_cell">BDY</td><td class="center_cell">剧集</td><td>γ</td></tr>
+<tr><td class="center_cell">WH</td><td>我和我的家乡.mp4</td><td class="center_cell">BDY</td><td class="center_cell">电影</td><td>γ</td></tr>
+<tr><td class="center_cell">WH</td><td>我和我的父辈.mp4</td><td class="center_cell">BDY</td><td class="center_cell">电影</td><td>γ</td></tr>
+<tr><td class="center_cell">WH</td><td>我和我的祖国.mp4</td><td class="center_cell">BDY</td><td class="center_cell">电影</td><td>γ</td></tr>
+<tr><td class="center_cell">YM</td><td>扬名立万.mp4</td><td class="center_cell">BDY</td><td class="center_cell">电影</td><td>γ</td></tr>
+<tr><td class="center_cell">LL</td><td>流浪地球.mp4</td><td class="center_cell">BDY</td><td class="center_cell">电影</td><td>γ</td></tr>
+<tr><td class="center_cell">LL</td><td>流浪地球2.mp4</td><td class="center_cell">BDY</td><td class="center_cell">电影</td><td>γ</td></tr>
+<tr><td class="center_cell">QG</td><td>记录-七个世界一个星球</td><td class="center_cell">BDY</td><td class="center_cell">纪录</td><td>γ</td></tr>
+<tr><td class="center_cell">DJ</td><td>记录-典籍里的中国‎</td><td class="center_cell">BDY</td><td class="center_cell">纪录</td><td>γ</td></tr>
+<tr><td class="center_cell">QG</td><td>记录-千古风流人物</td><td class="center_cell">BDY</td><td class="center_cell">纪录</td><td>γ</td></tr>
+<tr><td class="center_cell">LS</td><td>记录-历史那些事</td><td class="center_cell">BDY</td><td class="center_cell">纪录</td><td>γ</td></tr>
+<tr><td class="center_cell">SS</td><td>记录-史上最大的艺术品盗Qie案</td><td class="center_cell">BDY</td><td class="center_cell">纪录</td><td>γ</td></tr>
+<tr><td class="center_cell">DQ</td><td>记录-地球未知档案</td><td class="center_cell">BDY</td><td class="center_cell">纪录</td><td>γ</td></tr>
+<tr><td class="center_cell">DQ</td><td>记录-地球脉动</td><td class="center_cell">BDY</td><td class="center_cell">纪录</td><td>γ</td></tr>
+<tr><td class="center_cell">XG</td><td>记录-寻古中国</td><td class="center_cell">BDY</td><td class="center_cell">纪录</td><td>γ</td></tr>
+<tr><td class="center_cell">JB</td><td>记录-局部.陈丹青</td><td class="center_cell">BDY</td><td class="center_cell">纪录</td><td>γ</td></tr>
+<tr><td class="center_cell">DL</td><td>记录-当卢浮宫遇见紫禁城</td><td class="center_cell">BDY</td><td class="center_cell">纪录</td><td>γ</td></tr>
+<tr><td class="center_cell">TM</td><td>记录-探秘太阳系</td><td class="center_cell">BDY</td><td class="center_cell">纪录</td><td>γ</td></tr>
+<tr><td class="center_cell">HY</td><td>记录-欢迎来地球</td><td class="center_cell">BDY</td><td class="center_cell">纪录</td><td>γ</td></tr>
+<tr><td class="center_cell">HH</td><td>记录-海昏侯大墓考古发掘现场</td><td class="center_cell">BDY</td><td class="center_cell">纪录</td><td>γ</td></tr>
+<tr><td class="center_cell">KG</td><td>记录-考古进行时</td><td class="center_cell">BDY</td><td class="center_cell">纪录</td><td>γ</td></tr>
+<tr><td class="center_cell">HP</td><td>记录-航拍Z国</td><td class="center_cell">BDY</td><td class="center_cell">纪录</td><td>γ</td></tr>
+<tr><td class="center_cell">YJ</td><td>记录-遇见最极致的中国</td><td class="center_cell">BDY</td><td class="center_cell">纪录</td><td>γ</td></tr>
+<tr><td class="center_cell">SO</td><td>Adele-Someone Like You.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">FA</td><td>Alan Walker-Faded.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">WX</td><td>Celine Dion-我心永恒.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">LE</td><td>Frozen-Let it go.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">SO</td><td>Paul Simon-Sound Of Silence.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">JO</td><td>Santiano-Johnny Boy.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">WA</td><td>Shakira-Waka Waka.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">WL</td><td>兰音-雾里.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">SH</td><td>凤凰传奇-山河图.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">WD</td><td>刀郎-我的祖国.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">WL</td><td>刘惜君-雾里.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">FX</td><td>华晨宇-飞行模式.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">ZY</td><td>周深+萨顶顶-自由行走的花.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">DY</td><td>周深-大鱼.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">YQ</td><td>周深-缘起.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">XY</td><td>张信哲-信仰.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">ZX</td><td>张学友-只想一生跟你走.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">TL</td><td>张学友-她来听我的演唱会.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">MM</td><td>张学友-慢慢.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">SY</td><td>张杰-岁月神偷.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">HX</td><td>张靓颖-画心.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">YL</td><td>张韶涵 周深-一路生花.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">LM</td><td>张韶涵+王晰-黎明前的黑暗.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">AD</td><td>张韶涵-阿刁.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">BG</td><td>弦子+王唯乐-不甘.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">TL</td><td>曲肖冰-天亮以前说再见.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">SR</td><td>朴树-生如夏花.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">SQ</td><td>李宗盛-山丘.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">JN</td><td>林俊杰-江南.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">QF</td><td>林俊杰-起风了.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">SN</td><td>梦然-少年.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">WM</td><td>毛不易-无名的人.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">XC</td><td>毛不易-消愁.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">RY</td><td>王菲-如愿.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">WH</td><td>王菲-我和我的祖国.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">DM</td><td>瓦依那X任素汐-大梦.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">TT</td><td>腾格尔-天堂.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">ZS</td><td>莫文蔚-这世界那么多人.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">ZS</td><td>萨顶顶-左手指月.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">WL</td><td>萨顶顶-问灵.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">WL</td><td>萨顶顶-雾里.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">ST</td><td>袁莉媛-StarSky.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">DS</td><td>许巍-第三极.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">LL</td><td>许巍-蓝莲花.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">H</td><td>赵雷-画.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">GN</td><td>邓紫棋-光年之外.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">YS</td><td>陈奕迅-一丝不挂.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">GY</td><td>陈奕迅-孤勇者.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">MN</td><td>陈奕迅-明年今日.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>
+<tr><td class="center_cell">BM</td><td>陈奕迅-白玫瑰.mp4</td><td class="center_cell">BDY</td><td class="center_cell">音乐</td><td>γ</td></tr>  </tbody>
 </table>
 <hr>AMarvel,A周星驰,A姜文,A宫崎骏,A张艺谋,A成龙,A李安,A银河映像,C台,C日,C港,T动作,T动画,T极限运动,T演唱会,T灾难,T电视剧,T科幻,T纪录片,T魔幻,todo
 <hr>2019-03-10 07:38:16.013569
